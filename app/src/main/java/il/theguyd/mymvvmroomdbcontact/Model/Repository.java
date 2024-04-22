@@ -30,8 +30,8 @@ public class Repository {
     private Handler handler;
 
 
-    public Repository(ContactDAO contactDAO, Application application) {
-        contactsDB = ContactsDB.getInstance(application);
+    public Repository(Application application) {
+        this.contactsDB = ContactsDB.getInstance(application);
         this.contactDAO = contactsDB.getContactDAO();
 
         /**

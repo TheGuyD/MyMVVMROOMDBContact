@@ -4,9 +4,11 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.LiveData;
 
-import il.theguyd.mymvvmroomdbcontact.Model.DB.Instances.ContactsDB;
+import java.util.List;
+
+import il.theguyd.mymvvmroomdbcontact.Model.DB.Entities.Contact;
 import il.theguyd.mymvvmroomdbcontact.Model.Repository;
 
 /**
@@ -32,10 +34,23 @@ import il.theguyd.mymvvmroomdbcontact.Model.Repository;
 public class MainActivityViewModel extends AndroidViewModel {
 
     private Repository repository;
-    private ContactsDB contactsDB;
+    private LiveData<List<Contact>> allContacts;
+
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
-        contactsDB = ContactsDB.getInstance(application);
-        this.repository = new Repository(contactsDB.getContactDAO(),application);
+        this.repository = new Repository(application);
+    }
+
+    public LiveData<List<Contact>> getAllContacts() {
+        allContacts = repository.getAllContacts();
+        return allContacts;
+    }
+
+    public void addContact(Contact contact) {
+        repository.addContact(contact);
+    }
+
+    public void deleteContact(Contact contact) {
+        repository.deleteContact(contact);
     }
 }
