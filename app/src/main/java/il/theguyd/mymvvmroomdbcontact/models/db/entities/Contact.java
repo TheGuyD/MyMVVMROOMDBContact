@@ -1,11 +1,13 @@
-package il.theguyd.mymvvmroomdbcontact.Model.DB.Entities;
+package il.theguyd.mymvvmroomdbcontact.models.db.entities;
 
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "contacts")
-public class Contact {
+public class Contact extends BaseObservable {
 
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
@@ -16,6 +18,7 @@ public class Contact {
     @ColumnInfo(name = "email")
     private String email;
 
+    @Bindable
     public int getId() {
         return id;
     }
@@ -24,6 +27,7 @@ public class Contact {
         this.id = id;
     }
 
+    @Bindable
     public String getName() {
         return name;
     }
@@ -32,6 +36,7 @@ public class Contact {
         this.name = name;
     }
 
+    @Bindable
     public String getEmail() {
         return email;
     }

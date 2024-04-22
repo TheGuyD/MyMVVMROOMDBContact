@@ -1,4 +1,4 @@
-package il.theguyd.mymvvmroomdbcontact.ViewModels;
+package il.theguyd.mymvvmroomdbcontact.viewmodels;
 
 import android.app.Application;
 
@@ -8,8 +8,8 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import il.theguyd.mymvvmroomdbcontact.Model.DB.Entities.Contact;
-import il.theguyd.mymvvmroomdbcontact.Model.Repository;
+import il.theguyd.mymvvmroomdbcontact.models.db.entities.Contact;
+import il.theguyd.mymvvmroomdbcontact.models.Repository;
 
 /**
  * The purpose of the ViewModel is to acquire and keep the information that is necessary for an Activity or a Fragment.
@@ -31,12 +31,12 @@ import il.theguyd.mymvvmroomdbcontact.Model.Repository;
     allow data to survive configuration change.
 */
 
-public class MainActivityViewModel extends AndroidViewModel {
+public class ContactsFragmentViewModel extends AndroidViewModel {
 
-    private Repository repository;
+    private final Repository repository;
     private LiveData<List<Contact>> allContacts;
 
-    public MainActivityViewModel(@NonNull Application application) {
+    public ContactsFragmentViewModel(@NonNull Application application) {
         super(application);
         this.repository = new Repository(application);
     }

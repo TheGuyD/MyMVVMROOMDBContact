@@ -1,20 +1,19 @@
-package il.theguyd.mymvvmroomdbcontact.Model;
+package il.theguyd.mymvvmroomdbcontact.models;
 
 
 import android.app.Application;
-import android.os.Looper;
-
-import java.util.List;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import android.os.Handler;
+import android.os.Looper;
 
 import androidx.lifecycle.LiveData;
 
-import il.theguyd.mymvvmroomdbcontact.Model.DB.Daos.ContactDAO;
-import il.theguyd.mymvvmroomdbcontact.Model.DB.Entities.Contact;
-import il.theguyd.mymvvmroomdbcontact.Model.DB.Instances.ContactsDB;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import il.theguyd.mymvvmroomdbcontact.models.db.daos.ContactDAO;
+import il.theguyd.mymvvmroomdbcontact.models.db.entities.Contact;
+import il.theguyd.mymvvmroomdbcontact.models.db.instances.ContactsDB;
 
 
 /**
@@ -24,10 +23,10 @@ import il.theguyd.mymvvmroomdbcontact.Model.DB.Instances.ContactsDB;
  * different REST APIs,cache, local database storage) and it provides this data to the rest of the app.
  **/
 public class Repository {
-    private ContactsDB contactsDB;
+    private final ContactsDB contactsDB;
     private final ContactDAO contactDAO;
-    private ExecutorService executorService;
-    private Handler handler;
+    private final ExecutorService executorService;
+    private final Handler handler;
 
 
     public Repository(Application application) {
