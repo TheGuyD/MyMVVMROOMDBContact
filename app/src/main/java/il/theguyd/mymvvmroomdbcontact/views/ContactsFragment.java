@@ -16,17 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import il.theguyd.mymvvmroomdbcontact.R;
 import il.theguyd.mymvvmroomdbcontact.databinding.FragmentContactsBinding;
 import il.theguyd.mymvvmroomdbcontact.models.db.entities.Contact;
-import il.theguyd.mymvvmroomdbcontact.models.db.instances.ContactsDB;
-import il.theguyd.mymvvmroomdbcontact.R;
 import il.theguyd.mymvvmroomdbcontact.viewmodels.ContactsFragmentViewModel;
 import il.theguyd.mymvvmroomdbcontact.views.adapters.ContactAdapter;
 
 public class ContactsFragment extends Fragment {
 
     // Data Source
-    private ContactsDB contactsDB;
     private ArrayList<Contact> contactArrayList;
 
     // Adapter
@@ -71,20 +69,18 @@ public class ContactsFragment extends Fragment {
         // Linking the RecyclerView with the Adapter
         rcContacts.setAdapter(contactAdapter);
 
-
-        // ViewModel
-        contactsFragmentViewModel = new ViewModelProvider(this).get(ContactsFragmentViewModel.class);
-
+        // Activity-scoped ViewModel
+        contactsFragmentViewModel = new ViewModelProvider(requireActivity()).get(ContactsFragmentViewModel.class);
 
         // Loading the data in room DB
         contactsFragmentViewModel.getAllContacts().observe(this.getViewLifecycleOwner(), new Observer<List<Contact>>() {
             @Override
             public void onChanged(List<Contact> contacts) {
+
                 contactAdapter.setContactArrayList((ArrayList<Contact>) contacts);
             }
 
         });
-
 
         return fragmentContactsBinding.getRoot();
     }

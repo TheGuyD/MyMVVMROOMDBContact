@@ -7,7 +7,7 @@ import android.view.View;
 import il.theguyd.mymvvmroomdbcontact.views.AddNewContactActivity;
 
 public class MainActivityClickHandlers {
-    Context context;
+    private Context context;
 
     public MainActivityClickHandlers(Context context) {
         this.context = context;
