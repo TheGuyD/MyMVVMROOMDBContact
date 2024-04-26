@@ -8,8 +8,8 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import il.theguyd.mymvvmroomdbcontact.models.db.entities.Contact;
 import il.theguyd.mymvvmroomdbcontact.models.Repository;
+import il.theguyd.mymvvmroomdbcontact.models.db.entities.Contact;
 
 /**
  * The purpose of the ViewModel is to acquire and keep the information that is necessary for an Activity or a Fragment.
@@ -46,11 +46,5 @@ public class ContactsFragmentViewModel extends AndroidViewModel {
         return allContacts;
     }
 
-    public void addContact(Contact contact) {
-        repository.addContact(contact);
-    }
 
-    public void deleteContact(Contact contact) {
-        repository.deleteContact(contact);
-    }
 }
