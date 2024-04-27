@@ -13,21 +13,22 @@ import androidx.lifecycle.SavedStateHandle;
 import il.theguyd.mymvvmroomdbcontact.models.Repository;
 import il.theguyd.mymvvmroomdbcontact.models.db.entities.Contact;
 
-/***
- * ViewModel is designed to store and manage UI-related data in a lifecycle-conscious way. It survives configuration changes such as screen rotations,
- * meaning that data you hold inside the ViewModel will not be destroyed and re-created during these events.
+/**
+ * <p><b>ViewModel</b> is designed to store and manage UI-related data in a lifecycle-conscious way. It survives configuration changes such as screen rotations,
+ *  meaning that data you hold inside the ViewModel will not be destroyed and re-created during these events.</p>
  *
- * Limitation: The main limitation of a regular ViewModel is that it does not survive the process death.
- * If the Android system needs to reclaim resources and terminates the app process, when the app is brought back to the foreground (incoming phone call),
- * the ViewModel will be re-initialized, losing all its previous state.
- * This scenario typically occurs when the user navigates away from the app and returns to it after some time, especially if the device is under memory pressure.
+ * <p><b>Limitation: The main limitation of a regular ViewModel</b> is that it does not survive the process death.
+ *  If the Android system needs to reclaim resources and terminates the app process, when the app is brought back to the foreground (incoming phone call),
+ *  the ViewModel will be re-initialized, losing all its previous state.
+ *  This scenario typically occurs when the user navigates away from the app and returns to it after some time, especially if the device is under memory pressure.</p>
  *
- * Surviving Process Death: Unlike a regular ViewModel, when using SavedStateHandle,
- * the data persists not only through configuration changes but also through process death.
- * The data within SavedStateHandle is saved to a Bundle that is managed by the Android framework,
- * making it more robust against temporary process termination.
+ * <p><b>Surviving Process Death:</b> Unlike a regular ViewModel, when using SavedStateHandle,
+ *  the data persists not only through configuration changes but also through process death.
+ *  The data within SavedStateHandle is saved to a Bundle that is managed by the Android framework,
+ *  making it more robust against temporary process termination.</p>
  *
- * https://github.com/android/codelab-android-lifecycles/blob/master/app/src/main/java/com/example/android/lifecycles/step6_solution/SavedStateViewModel.java
+ * {@link } <a href="https://github.com/android/codelab-android-lifecycles/blob/master/app/src/main/java/com/example/android/lifecycles/step6_solution/SavedStateViewModel.java">example 1</a>
+ * {@link } <a href="https://developer.android.com/codelabs/android-lifecycles#6">example 2</a>
  ***/
 
 public class SavedStateViewModel extends AndroidViewModel {
