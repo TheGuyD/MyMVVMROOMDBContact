@@ -13,15 +13,12 @@ import il.theguyd.mymvvmroomdbcontact.viewmodels.SavedStateViewModel;
 
 public class AddNewContactActivity extends AppCompatActivity {
     private SavedStateViewModel savedStateViewModel;
-
     private ActivityAddNewContactBinding activityAddNewContactBinding;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityAddNewContactBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_new_contact);
-
 
         // Obtain the ViewModel
         savedStateViewModel = new ViewModelProvider(this).get(SavedStateViewModel.class);
